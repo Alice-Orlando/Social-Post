@@ -39,12 +39,14 @@
         try{
             const dato = document.getElementById('testo').value;
             const nome = document.getElementById('nome').value;
+            const descrizione = document.getElementById('descrizione').value;
+            const immagine = document.getElementById('immagine').value;
             const res = await fetch ('/post', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({nome, testo: dato})
+                body: JSON.stringify({nome, testo: dato, descrizione, immagine})
             });
                 const data = await res.json();
                 console.log(data);
