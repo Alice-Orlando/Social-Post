@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Post</title>
+</head>
+<body>
+    <h1>Social Post</h1>
+    <form id="FormSemplice" action="#" method="post">
+        <div>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" placeholder="Inserisci il nome" required />
+        </div>
+        <div>
+            <label for="testo">Testo:</label>
+            <textarea id="testo" name="testo" rows="4" cols="40" placeholder="Scrivi qualcosa..."></textarea>
+        </div>
+        <div>
+            <button type="submit" onclick="inviaDati()">Invia</button>
+        </div>
+    </form>
+
+<script>
+    async function  inviaDati(){
+        try{
+            const dato = document.getElementById('testo').value;
+            const nome = document.getElementById('nome').value;
+            const res = await fetch ('/post', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({nome, testo: dato})
+            });
+                const data = await res.json();
+                console.log(data);
+        }
+        catch (error){
+            console.error('Errore:', error);
+    }}
+
+</script>
+
+</body>
+</html>
