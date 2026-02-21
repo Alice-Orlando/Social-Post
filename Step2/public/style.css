@@ -1,0 +1,19 @@
+body {
+  font-family: Arial;
+  padding: 20px;
+}
+
+input, textarea {
+  width: 300px;
+}
+
+.gallery {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
